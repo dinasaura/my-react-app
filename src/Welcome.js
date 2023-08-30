@@ -11,7 +11,7 @@ const Welcome = ({ name, age }) => {
 };
 
 Welcome.defaultProps = {
-  name: Luca,
+  name: 'Guest',
   age: null,
 };
 
