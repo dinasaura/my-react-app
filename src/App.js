@@ -1,9 +1,10 @@
 import './App.css';
+import GithubUser from './GitHubUser';
 
 function App() {
   return (
     <div className="App">
-      app
+      <GithubUser username="mojombo" />
     </div>
   );
 }
