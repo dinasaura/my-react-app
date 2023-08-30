@@ -12,7 +12,7 @@ function Welcome(props) {
 }
 
 
-SecondProp.defaultProps = {
+Welcome.defaultProps = {
   name: <strong> Luca </strong>,
   age: null
 };
