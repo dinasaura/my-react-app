@@ -4,13 +4,16 @@ function Login({ onLogin }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-
   const gestioneLogin = () => {
     if (username !== '' && password !== '') {
       onLogin({ username, password });
     }
   };
 
+  const gestioneReset = () => {
+    setUsername('');
+    setPassword('');
+  };
 
   const isDisabled = username === '' || password === '';
 
@@ -32,6 +35,9 @@ function Login({ onLogin }) {
         Login
       </button>
 
+      <button onClick={gestioneReset}>
+        Reset
+      </button>
     </div>
   );
 }
