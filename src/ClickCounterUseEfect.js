@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-function ClickCounterUseEffect({ onCounterChange }) {
+function ClickCounterUseEffect2() {
   const [count, setCount] = useState(0);
 
+  
   useEffect(() => {
-    onCounterChange(count);
-  }, [count, onCounterChange]);
+    const interval = setInterval(() => {
+      setCount(prevCount => prevCount + 1);
+    }, 1000);
 
-  const handleIncrement = () => {
-    setCount(prevCount => prevCount + 1);
-  };
+    
+    return () => {
+      clearInterval(interval);
+    };
+  }, []); 
 
   return (
     <div>
       <p>Conteggio: {count}</p>
-      <button onClick={handleIncrement}>Incrementa</button>
     </div>
   );
 }
 
-export default ClickCounterUseEffect;
+export default ClickCounterUseEffect2;
