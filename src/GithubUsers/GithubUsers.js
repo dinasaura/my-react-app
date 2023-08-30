@@ -1,21 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UseGithubUser from './UseGithubUser'; 
 
-function GithubUser({ username }) {
-  const userData = UseGithubUser(username);
+function GithubUsers({ initialUsername }) {
+  const [username, setUsername] = useState(initialUsername);
+  const { userData, loading, error, fetchUser } = UseGithubUser();
 
-  if (!userData) {
-    return <p>Caricamento...</p>;
-  }
+  const handleFetch = () => {
+    if (username) {
+      fetchUser(username);
+    }
+  };
 
   return (
     <div>
-      <h2>{userData.name}</h2>
-      <p>Nome utente: {userData.login}</p>
-      <p>Followers: {userData.followers}</p>
+      <input
+        type="text"
+        value={username}
+        onChange={event => setUsername(event.target.value)}
+        placeholder="Enter GitHub username"
+      />
+      <button onClick={handleFetch}>Fetch User</button>
+
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {userData && (
+        <div>
+          <h2>{userData.name}</h2>
+          <p>Username: {userData.login}</p>
+          <p>Followers: {userData.followers}</p>
+        </div>
+      )}
     </div>
   );
 }
 
-export default GithubUser;
+export default GithubUsers;
 
