@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import Welcome from './Welcome'
 
 function App() {
   return (
     <div className="App">
-     <SecondProp name={<strong>John</strong>} age={30} />
+     <Welcome name={<strong>John</strong>} age={30} />
     </div>
   );
 }
