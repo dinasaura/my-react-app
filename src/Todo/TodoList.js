@@ -7,8 +7,12 @@ function TodoList() {
   const handleAddItem = () => {
     if (inputValue.trim() !== '') {
       setItems([...items, inputValue]);
-      setInputValue(''); 
+      setInputValue('');
     }
+  };
+
+  const handleReset = () => {
+    setItems([]); 
   };
 
   return (
@@ -26,11 +30,13 @@ function TodoList() {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button onClick={handleAddItem}>Add Item</button>
+        <button onClick={handleReset}>Reset</button>
       </div>
     </div>
   );
 }
 
 export default TodoList;
+
 
 
