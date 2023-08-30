@@ -16,7 +16,7 @@ function Welcome(props) {
 }
 
 Welcome.defaultProps = {
-  name: Guest,
+  name: 'Guest',
   age: null
 };
 
