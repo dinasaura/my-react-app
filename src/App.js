@@ -1,10 +1,10 @@
 import './App.css';
-import Counter from './Counter';
+import ClickCounter from './ClickCounter';
 
 function App() {
   return (
     <div className="App">
-      <Counter initialValue={5} incrementInterval={500} incrementAmount={2} />
+      <ClickCounter/>
     </div>
   );
 }
