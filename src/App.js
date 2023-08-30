@@ -1,10 +1,13 @@
 import './App.css';
-import InteractiveWelcome from './InteractiveWelcome';
+import Login from './Login';
 
 function App() {
+  const handleLogin = (credentials) => {
+    console.log('Logging in with:', credentials);
+  };
   return (
     <div className="App">
-      <InteractiveWelcome />
+      <Login onLogin={handleLogin} />
     </div>
   );
 }
