@@ -1,9 +1,10 @@
 import './App.css';
+import CounterComponent from './CustomHooks/CounterComponent'
 
 function App() {
   return (
     <div className="App">
-      app
+      <CounterComponent />
     </div>
   );
 }
