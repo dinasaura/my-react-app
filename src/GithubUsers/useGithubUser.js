@@ -1,9 +1,17 @@
 import useSWR from 'swr';
 
-function fetchUser(username) {
-  return fetch(`https://api.github.com/users/${username}`).then((response) =>
-    response.json()
-  );
+async function fetchUser(username) {
+  if (!username) {
+    return null; 
+  }
+
+  const response = await fetch(`https://api.github.com/users/${username}`);
+  
+  if (!response.ok) {
+    throw new Error('Impossibile recuperare i dati');
+  }
+
+  return response.json();
 }
 
 function useGithubUser(username) {
@@ -17,4 +25,5 @@ function useGithubUser(username) {
 }
 
 export default useGithubUser;
+
 
