@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import UseGithubUser from './UseGithubUser'; 
+import useGithubUser from './useGithubUser'; 
 
 function GithubUsers({ initialUsername }) {
   const [username, setUsername] = useState(initialUsername);
-  const { userData, loading, error, fetchUser } = UseGithubUser();
+  const { userData, loading, error, fetchUser } = useGithubUser();
 
   const handleFetch = () => {
     if (username) {
