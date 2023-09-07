@@ -1,18 +1,9 @@
 import React from "react";
-import { Route, Routes, Link, useNavigate } from "react-router-dom";
+import { Route, Routes, Link} from "react-router-dom";
 import Counter from "./Counter";
-import ShowGithubUser from "./GithubUsers/ShowGithubUsers";
-
-function NotFound() {
-  return <h1>404 - Not Found</h1>;
-}
+import GithubUserList from "./GithubUsers/GithubUserList";
 
 function App() {
-  const navigate = useNavigate();
-
-  function buttonNavigate() {
-    navigate("./Counter");
-  }
 
   return (
     <div>
@@ -22,23 +13,21 @@ function App() {
             <Link to="/Counter">Counter</Link>
           </li>
           <li>
-            <Link to="/users/someusername">Show GitHub User</Link>
+            <Link to="/users">GitHub Users</Link>
           </li>
         </ul>
       </nav>
-
-      <button onClick={buttonNavigate}>Enter the counter app</button>
-
       <Routes>
         <Route path="/Counter" element={<Counter initialValue={0} />} />
-        <Route path="/users/:username" element={<ShowGithubUser />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/users/*" element={<GithubUserList />} />
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+
 
 
 
